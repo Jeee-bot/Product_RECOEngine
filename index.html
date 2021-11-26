@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel='stylesheet' type="text/css" href="/static/style.css"/>
+        <style>
+            input[type=button],
+            input[type=submit] {
+              background-color: #696969;
+              border: none;
+              color: #fff;
+              padding: 18px 24px;
+              text-decoration: none;
+              cursor: pointer;
+            }
+          </style>
+    </head>
+    <body>
+        <div class="heading">
+            <h1 style="color:#FFA07A">Sentiment based Product Recommendation System</h1>
+        </div>
+        <div  class="form" >
+            <form method="POST">
+                <p><label><b>Which user would you like to see recommendations of today?</b></label>
+                <input type="text" id="uname" name="uname">
+                <input class=".submit-btn" type="submit" name="submit" style="color:#FFA07A" value="GO"/></p>
+            </form>
+        </div>
+        <div class="info">
+            <h3>{{info}}</h3>
+        </div>
+        <table class="table">
+            <tr class="table__header">
+                {% for header in headings %}
+                    <th class="table__cell">{{header}}</th>
+                {% endfor %}
+            </tr>
+            {% for row in data %}
+            <tr class="table__row">
+                {% for cell in row %}
+                    <td class="table__cell">{{cell}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}            
+        </table>
+    </body>
+</html>
